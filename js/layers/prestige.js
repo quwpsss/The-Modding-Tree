@@ -1,6 +1,6 @@
 addLayer("p", {
     name: "prestige", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "C", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "✏️", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
@@ -34,7 +34,7 @@ addLayer("p", {
         "buyables",
         "blank",
     ],
-    color: "#ffb605",
+    color: "#F0E68C",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "Pens", // Name of prestige currency
     baseResource: "Pencils", // Name of resource prestige is based on
@@ -89,13 +89,13 @@ addLayer("p", {
     upgrades:{
         11: {
             title: "Doubler",
-            description: "x2 to points gain",
+            description: "x2 to ✏️ gain",
             cost: new Decimal(1),
         },
         12: {
             unlocked() {return hasUpgrade(this.layer, 11)},
             title: "Useful PP",
-            description: "Points get boost based on PP",
+            description: "✏️ get boost based on PP",
             cost: new Decimal(3),
             effect() {
                 hardcap = new Decimal("1e6")
@@ -110,7 +110,7 @@ addLayer("p", {
         13: {
             unlocked() {return hasUpgrade(this.layer, 12)},
             title: "Useful points",
-            description: "PP get boost based on points",
+            description: "PP get boost based on ✏️",
             cost: new Decimal(5),
             effect() {
                 hardcap = new Decimal("100")
@@ -125,7 +125,7 @@ addLayer("p", {
         14: {
             unlocked() {return hasUpgrade(this.layer, 13)},
             title: "Just points multi",
-            description: "x5 to points gain",
+            description: "x5 to ✏️ gain",
             cost: new Decimal(20),
         },
         15: {
@@ -146,7 +146,7 @@ addLayer("p", {
         31: {
             unlocked() {return hasUpgrade(this.layer, 21)},
             title: "Useful points 2",
-            description: "points get boost based on points",
+            description: "✏️ get boost based on points",
             cost: new Decimal(100),
             effect() {
                 hardcap = new Decimal("100")
@@ -167,7 +167,7 @@ addLayer("p", {
         33: {
             unlocked() {return hasUpgrade(this.layer, 21)},
             title: "Ultimate points",
-            description: "points ^1.1",
+            description: "✏️ ^1.1",
             cost: new Decimal(3000),
         },
         34: {
