@@ -22,14 +22,6 @@ function challengeCompletions(layer, id) {
 	return (player[layer].challenges[id])
 }
 
-function canEnterChallenge(layer, id){
-	return tmp[layer].challenges[id].canEnter ?? true
-}
-
-function canExitChallenge(layer, id){
-	return tmp[layer].challenges[id].canExit ?? true
-}
-
 function getBuyableAmount(layer, id) {
 	return (player[layer].buyables[id])
 }
@@ -60,6 +52,10 @@ function setGridData(layer, id, data) {
 
 function upgradeEffect(layer, id) {
 	return (tmp[layer].upgrades[id].effect)
+}
+
+function milestoneEffect(layer, id) {
+	return (tmp[layer].milestones[id].effect)
 }
 
 function challengeEffect(layer, id) {

@@ -7,7 +7,14 @@ function loadVue() {
 		template: `
 			<span class="instant" v-html="data"></span>
 		`
-	})
+		})
+
+	Vue.component('audio', {
+		props: ['layer', 'data'],
+		template: `
+			<audio src="data"> </audio> 
+		`
+		})
 
 // data = a function returning the content (actually HTML)
 	Vue.component('raw-html', {
