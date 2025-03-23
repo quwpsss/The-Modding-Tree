@@ -34,7 +34,7 @@ addLayer("p", {
         "buyables",
         "blank",
     ],
-    color: "#03dbfc",
+    color: "#7CB9E8",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "Pens", // Name of prestige currency
     baseResource: "Pencils", // Name of resource prestige is based on
@@ -84,7 +84,6 @@ addLayer("p", {
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for Pens", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
-        branches, ["k"]
     ],
     layerShown(){return true},
     upgrades:{
