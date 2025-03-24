@@ -1,18 +1,19 @@
 addLayer("k", {
-    name: "Kirill",
-    symbol: "k",
+    name: "E",
+    symbol: "E",
     position: 0,
     startData() { return {
         unlocked: false,
 		points: new Decimal(0),
         setBuyableAmount: new Decimal(0)
     }},
-    layerShown() { return player[this.layer].unlocked || hasUpgrade("p", 41) },
-    color: "#008B8B",
+    layerShown() { return player[this.layer].unlocked || hasUpgrade("p",35)},
+    color: "##ffcada",
     requires: new Decimal(100000),
+    branches: ["p"], 
     row: "1",
-    resource: "IQ",
-    baseResource: "prestige points",
+    resource: "Erasers",
+    baseResource: "Pens",
     autoPrestige() { 
         if (hasUpgrade("y", 12) || hasMilestone("d", 1)) return true
         else return false     

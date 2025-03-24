@@ -20,20 +20,7 @@ addLayer("p", {
             player[this.layer].upgrades = keep
             player["p"].progress = new Decimal(0)
     },
-    tabFormat: [
-        "main-display",
-        "prestige-button",
-        "resource-display",
-        "blank",
-        "upgrades",
-        "blank",
-        "milestones",
-        "blank",
-        ["clickable", "11"],
-        "blank",
-        "buyables",
-        "blank",
-    ],
+    
     color: "#7CB9E8",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "Pens", // Name of prestige currency
@@ -85,7 +72,34 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for Pens", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true},
+    tabFormat: {
+        "Main": {
+                content: [
+                ["display-text",
+                'School 1', { "color": "LightBlue", "font-size": "32px", "text-shadow": "0px 0px 20px LightBlue"}],
+                "blank",
+                "blank",
+                "main-display",
+                "blank",
+                "resource-display",
+                "blank",
+                "prestige-button",
+                "blank",
+                ["infobox", "main"],
+                ["infobox", "main2"],
+             ],
+            },
+            "Upgrades": {
+                content: [
+                "main-display",
+                "blank",
+                "prestige-button",
+                "blank",
+               "upgrades",
+             ],
+             unlocked() {return player.r.points.gte(1)},
+            },
+         },
     upgrades:{
         11: {
             title: "Doubler",
@@ -190,15 +204,15 @@ addLayer("p", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
-        41: {
-            unlocked() {
-                if (hasUpgrade(this.layer, 41)) return false
-                if (player.k.unlocked) return false
-                else return hasUpgrade(this.layer, 35)
-            },
-            title: "Erasers?",
-            description: "Unlocks Erasers",
-            cost: new Decimal(100000),
-        },
     },
+    infoboxes: {
+        main: {
+            title: "Welcome!",
+            body() { return "<b>Welcome to The Galactic Tree</b>.<br>What you are reading right now is called an infobox. these will help you throughout the game. To start playing, read the infobox below me and click on 'Upgrades' at the top" },
+        },
+        main2: {
+            title: "Introducing: Rocket Fuel", 
+            body() { return "Welcome to Chapter 0! At this stage, it's fairly simple, just click the red button and you will earn Rocket Fuel. You can spend Rocket Fuel on upgrades. Try getting 500 Rocket Fuel!" },
+        },
+    }
 })
