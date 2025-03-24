@@ -207,12 +207,12 @@ addLayer("p", {
     },
     infoboxes: {
         main: {
-            title: "Welcome!",
-            body() { return "<b>Welcome to The Galactic Tree</b>.<br>What you are reading right now is called an infobox. these will help you throughout the game. To start playing, read the infobox below me and click on 'Upgrades' at the top" },
+            title: "Your first infobox!",
+            body() { return "<b>Welcome to The School Tree</b>.<br>This is an infobox!. They will help everwhere in the game. Read the infobox below me and click on 'Upgrades' at the to start through the system!"},
         },
         main2: {
-            title: "Introducing: Rocket Fuel", 
-            body() { return "Welcome to Chapter 0! At this stage, it's fairly simple, just click the red button and you will earn Rocket Fuel. You can spend Rocket Fuel on upgrades. Try getting 500 Rocket Fuel!" },
+            title: "Pencils!", 
+            body() { return "Welcome! Click the blue button to get 1 Pen! You can spend Pens on upgrades. Try getting 100,000 Pens!"},
         },
     }
 })
