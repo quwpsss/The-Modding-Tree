@@ -208,11 +208,11 @@ addLayer("p", {
     infoboxes: {
         main: {
             title: "Your first infobox!",
-            body() { return "<b>Welcome to The School Tree</b>.<br>This is an infobox!. They will help everwhere in the game. Read the infobox below me and click on 'Upgrades' at the to start through the system!"},
+            body() { return "<b>Welcome to The School Tree</b>.<br>This is an infobox!. They will help everwhere in the game. Read the infobox below me and click on 'Upgrades' at the to start through the school system!"},
         },
         main2: {
-            title: "Pencils!", 
-            body() { return "Welcome! Click the blue button to get 1 Pen! You can spend Pens on upgrades. Try getting 100,000 Pens!"},
+            title: "Pens!", 
+            body() { return "Welcome! Click the blue button to get 1 Pen! You can spend Pens on upgrades. Try getting to over 100,000 Pens!"},
         },
     }
 })

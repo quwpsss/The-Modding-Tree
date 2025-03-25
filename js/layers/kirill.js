@@ -1,6 +1,6 @@
 addLayer("k", {
-    name: "E",
-    symbol: "E",
+    name: "Erasers",
+    symbol: "🧼",
     position: 0,
     startData() { return {
         unlocked: false,
@@ -8,7 +8,7 @@ addLayer("k", {
         setBuyableAmount: new Decimal(0)
     }},
     layerShown() { return player[this.layer].unlocked || hasUpgrade("p",35)},
-    color: "##ffcada",
+    color: "#ffcada",
     requires: new Decimal(100000),
     branches: ["p"], 
     row: "1",

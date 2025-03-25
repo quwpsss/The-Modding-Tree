@@ -2,7 +2,7 @@ let modInfo = {
 	name: "The Danus Tree",
 	id: "8318",
 	author: "Danus",
-	pointsName: "points",
+	pointsName: "Pencils",
 	modFiles: ["layers/prestige.js", "layers/kirill.js", "layers/money.js", "layers/waiting.js","tree.js", "layers/dimitron.js", "layers/oscar.js", "layers/dota.js", "layers/yuldash.js", "layers/rage.js", ],
 
 	discordName: "2dollars",
