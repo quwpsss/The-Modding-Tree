@@ -129,25 +129,25 @@ addLayer("k", {
     upgrades:{
         11: {
             title: "Again...",
-            description: "x2 PP and points",
+            description: "x2 Pens and Pencils",
             cost: new Decimal(1),
         },
         12: {
             unlocked() {return hasUpgrade("k", 11)},
             title: "Again...Again...",
-            description: "x2 PP and points",
+            description: "x2 Pens and Pencils",
             cost: new Decimal(1),
         },
         13: {
             unlocked() {return hasMilestone("k", 0)},
-            title: "Powerful PP",
-            description: "x100 to PP gain and you can get more than 1 IQ at once",
+            title: "Powerful Pens",
+            description: "x100 to Pens gain and you can get more than 1 Eraser at once",
             cost: new Decimal(3),
         },
         14: {
             unlocked() {return hasUpgrade(this.layer, 13)},
-            title: "needed IQ",
-            description: "points boost based on IQ",
+            title: "needed Eraser",
+            description: "points boost based on Erasers",
             cost: new Decimal(3),
             effect() {
                 IQB = new Decimal("4")
@@ -158,8 +158,8 @@ addLayer("k", {
         },
         15: {
             unlocked() {return hasUpgrade("k", 14)},
-            title: "Really needed IQ",
-            description: "boost PP based on IQ",
+            title: "Really needed Erasers",
+            description: "boost Pens based on Erasers",
             cost: new Decimal(4),
             effect() {
                 IQB = new Decimal("4")
@@ -175,7 +175,7 @@ addLayer("k", {
                 else return hasUpgrade(this.layer, 15)
             },
             title: "Something new",
-            description: "Unlocks kirill buyable",
+            description: "Unlocks Eraser buyable",
             cost: new Decimal(4),
         },
         22: {
@@ -292,20 +292,20 @@ addLayer("k", {
     milestones: {
         0: {
             unlocked() {return hasUpgrade("k", 12)},
-            requirementDescription: "3 IQ",
-            effectDescription: "save 1st row PP upgrades",
+            requirementDescription: "3 Erasers",
+            effectDescription: "save 1st row Pen upgrades",
             done() { return player.k.points.gte(3) },
         },
         1: {
             unlocked() {return hasMilestone("k", 0)},
-            requirementDescription: "5 IQ",
-            effectDescription: "save 2nd row PP upgrades",
+            requirementDescription: "5 Erasers",
+            effectDescription: "save 2nd row Pen upgrades",
             done() { return player.k.points.gte(5) },
         },
         2: {
             unlocked() {return hasUpgrade(this.layer, 34)},
-            requirementDescription: "10 IQ",
-            effectDescription: "You gain 100% of your PP gain per second",
+            requirementDescription: "10 Erasers",
+            effectDescription: "You gain 100% of your Pens gain per second",
             done() { return player.k.points.gte(10) },
         },
     },
