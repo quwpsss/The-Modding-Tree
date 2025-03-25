@@ -14,6 +14,34 @@ addLayer("k", {
     row: "1",
     resource: "Erasers",
     baseResource: "Pens",
+    tabFormat: {
+        "Main": {
+            content: [
+            "main-display",
+            "blank",
+            "prestige-button",
+            "blank",
+            ["infobox", "main"],
+        ],
+    },
+        "Milestones": {
+            content: [
+            "main-display",
+            "blank",
+            "prestige-button",
+            "blank",
+            "milestones",
+        ],
+        },
+        "Upgrades": {
+            content: [
+            "main-display",
+            "blank",
+            "prestige-button",
+            "blank",
+            "upgrades"
+         ],
+        },
     autoPrestige() { 
         if (hasUpgrade("y", 12) || hasMilestone("d", 1)) return true
         else return false     
@@ -309,4 +337,11 @@ addLayer("k", {
             done() { return player.k.points.gte(10) },
         },
     },
+    infoboxes: {
+        main: {
+            title: "Erasers for your Pens and Pencils!",
+            body() { return "This reset layer is a little bit different it costs Pens not Pencils and it will reset all progress you have made so far. To see what benefits you get, go to the 'Milestones' tab at the top" },
+        },
+    }
+}
 })
