@@ -102,7 +102,7 @@ addLayer("p", {
          },
     upgrades:{
         11: {
-            title: "Doubler",
+            title: "Doubled",
             description: "x2 to ✏️ gain",
             cost: new Decimal(1),
         },
