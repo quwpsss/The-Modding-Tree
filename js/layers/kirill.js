@@ -14,34 +14,6 @@ addLayer("k", {
     row: "1",
     resource: "Erasers",
     baseResource: "Pens",
-    tabFormat: {
-        "Main": {
-            content: [
-            "main-display",
-            "blank",
-            "prestige-button",
-            "blank",
-            ["infobox", "main"],
-        ],
-    },
-        "Milestones": {
-            content: [
-            "main-display",
-            "blank",
-            "prestige-button",
-            "blank",
-            "milestones",
-        ],
-        },
-        "Upgrades": {
-            content: [
-            "main-display",
-            "blank",
-            "prestige-button",
-            "blank",
-            "upgrades"
-         ],
-        },
     autoPrestige() { 
         if (hasUpgrade("y", 12) || hasMilestone("d", 1)) return true
         else return false     
@@ -108,7 +80,7 @@ addLayer("k", {
     },
     buyables: {
         11: {
-            title: "Erasing Erasers",
+            title: "Roblox",
             unlocked() {
                 if (player.d.unlocked) return true
                 else return hasUpgrade("k", 21)
@@ -118,7 +90,7 @@ addLayer("k", {
                 if (hasUpgrade("o", 22)) pow = new Decimal(2)
                 return new Decimal(3).add(x).pow(pow) 
             },
-            display() { return "Erasers are more effective" },
+            display() { return "Waste your IQ on roblox(roblox makes you more powerful)" },
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             purchaseLimit() {
                 madd = new Decimal(0)
@@ -157,25 +129,25 @@ addLayer("k", {
     upgrades:{
         11: {
             title: "Again...",
-            description: "x2 Pens and Pencils",
+            description: "x2 PP and points",
             cost: new Decimal(1),
         },
         12: {
             unlocked() {return hasUpgrade("k", 11)},
             title: "Again...Again...",
-            description: "x2 Pens and Pencils",
+            description: "x2 PP and points",
             cost: new Decimal(1),
         },
         13: {
             unlocked() {return hasMilestone("k", 0)},
-            title: "Powerful Pens",
-            description: "x100 to Pens gain and you can get more than 1 Eraser at once",
+            title: "Powerful PP",
+            description: "x100 to PP gain and you can get more than 1 IQ at once",
             cost: new Decimal(3),
         },
         14: {
             unlocked() {return hasUpgrade(this.layer, 13)},
-            title: "needed Eraser",
-            description: "points boost based on Erasers",
+            title: "needed IQ",
+            description: "points boost based on IQ",
             cost: new Decimal(3),
             effect() {
                 IQB = new Decimal("4")
@@ -186,8 +158,8 @@ addLayer("k", {
         },
         15: {
             unlocked() {return hasUpgrade("k", 14)},
-            title: "Really needed Erasers",
-            description: "boost Pens based on Erasers",
+            title: "Really needed IQ",
+            description: "boost PP based on IQ",
             cost: new Decimal(4),
             effect() {
                 IQB = new Decimal("4")
@@ -203,7 +175,7 @@ addLayer("k", {
                 else return hasUpgrade(this.layer, 15)
             },
             title: "Something new",
-            description: "Unlocks Eraser buyable",
+            description: "Unlocks kirill buyable",
             cost: new Decimal(4),
         },
         22: {
@@ -212,7 +184,7 @@ addLayer("k", {
                 else return hasMilestone(this.layer, 1)
             },
             title: "Something new v2",
-            description: "Unlocks 2nd row of Eraser upgrades",
+            description: "Unlocks 2nd row of Kirill upgrades",
             cost: new Decimal(5),
         }, 
         31: {
@@ -225,26 +197,26 @@ addLayer("k", {
             unlocked() {return hasUpgrade(this.layer, 22)},
             title: "Stupid Formula",
             description: "Prestige formula better",
-            tooltip: "You cant understand it yet but you know it is better.",
+            tooltip: "С вашим IQ вы не можете понять престиж формулу, поэтому она теперь легче",
             cost: new Decimal(6),
         },
         33: {
             unlocked() {return hasUpgrade(this.layer, 22)},
-            title: "Really Really needed Erasers",
-            description: "Needed Erasers and Really needed Erasers better",
+            title: "Really Really needed IQ",
+            description: "needed IQ and Really needed IQ better",
             cost: new Decimal(8),
         },
         34: {
             unlocked() {return hasUpgrade(this.layer, 22)},
             title: "Stupid formula 2",
-            description: "Eraser formula slightly better",
-            tooltip: "You still cannot understand but know it is even better.",
+            description: "IQ formula slightly better",
+            tooltip: "У вас чуть больше IQ, но всё ещё недостаточно, чтобы понять IQ формулу, поэтому она теперь легче",
             cost: new Decimal(9),
         },
         35: {
             unlocked() {return hasUpgrade(this.layer, 22)},
             title: "Super Buyable",
-            description: "Number of buyable purchases boosts Pens",
+            description: "Number of buyable purchases boosts PP",
             effect() {
                 return new Decimal(getBuyableAmount(this.layer, 11)).plus(1).pow(37)
             },
@@ -320,28 +292,21 @@ addLayer("k", {
     milestones: {
         0: {
             unlocked() {return hasUpgrade("k", 12)},
-            requirementDescription: "3 Erasers",
-            effectDescription: "save 1st row Pen upgrades",
+            requirementDescription: "3 IQ",
+            effectDescription: "save 1st row PP upgrades",
             done() { return player.k.points.gte(3) },
         },
         1: {
             unlocked() {return hasMilestone("k", 0)},
-            requirementDescription: "5 Erasers",
-            effectDescription: "save 2nd row Pen upgrades",
+            requirementDescription: "5 IQ",
+            effectDescription: "save 2nd row PP upgrades",
             done() { return player.k.points.gte(5) },
         },
         2: {
             unlocked() {return hasUpgrade(this.layer, 34)},
-            requirementDescription: "10 Erasers",
-            effectDescription: "You gain 100% of your Pens gain per second",
+            requirementDescription: "10 IQ",
+            effectDescription: "You gain 100% of your PP gain per second",
             done() { return player.k.points.gte(10) },
         },
     },
-    infoboxes: {
-        main: {
-            title: "Erasers for your Pens and Pencils!",
-            body() { return "This reset layer is a little bit different. It costs Pens not Pencils and it will reset all progress you have made so far. To see what benefits you get, go to the 'Milestones' tab at the top." },
-        },
-    }
-}
 })
