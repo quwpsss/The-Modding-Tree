@@ -7,6 +7,43 @@ addLayer("k", {
 		points: new Decimal(0),
         setBuyableAmount: new Decimal(0)
     }},
+    tabFormat: {
+        "Main": {
+            content: [
+            "main-display",
+            "blank",
+            "prestige-button",
+            "blank",
+            ["infobox", "main"],
+        ],
+    },
+        "Milestones": {
+            content: [
+            "main-display",
+            "blank",
+            "prestige-button",
+            "blank",
+            "milestones",
+        ],
+        },
+        "Upgrades": {
+            content: [
+            "main-display",
+            "blank",
+            "prestige-button",
+            "blank",
+            "upgrades"
+         ],
+         "Buyables": {
+            content: [
+                "main-display",
+                "blank",
+                "prestige-button",
+                "blank",
+                "buyables",
+         ],
+     },
+  },
     layerShown() { return player[this.layer].unlocked || hasUpgrade("p",35)},
     color: "#ffcada",
     requires: new Decimal(100000),
@@ -80,7 +117,7 @@ addLayer("k", {
     },
     buyables: {
         11: {
-            title: "Roblox",
+            title: "Mistakes",
             unlocked() {
                 if (player.d.unlocked) return true
                 else return hasUpgrade("k", 21)
@@ -105,7 +142,7 @@ addLayer("k", {
             },
             display() { 
                 let data = tmp[this.layer].buyables[this.id]
-                let data2 = tmp["m"].buyables["13"]
+                let data2 = tmp["m"].buy+s["13"]
                 madd = new Decimal(0)
                 if (hasUpgrade("d", 34)) madd = new Decimal(100)
                 if (hasUpgrade("o", 22)) madd = madd.plus(data2.effect)
@@ -129,25 +166,25 @@ addLayer("k", {
     upgrades:{
         11: {
             title: "Again...",
-            description: "x2 PP and points",
+            description: "x2 Pens and Pencils",
             cost: new Decimal(1),
         },
         12: {
             unlocked() {return hasUpgrade("k", 11)},
             title: "Again...Again...",
-            description: "x2 PP and points",
+            description: "x2 Pens and Pencils",
             cost: new Decimal(1),
         },
         13: {
             unlocked() {return hasMilestone("k", 0)},
-            title: "Powerful PP",
-            description: "x100 to PP gain and you can get more than 1 IQ at once",
+            title: "Powerful Pens",
+            description: "x100 to Pens gain and you can get more than 1 Eraser at once",
             cost: new Decimal(3),
         },
         14: {
             unlocked() {return hasUpgrade(this.layer, 13)},
-            title: "needed IQ",
-            description: "points boost based on IQ",
+            title: "Needed Erasers",
+            description: "points boost based on Erasers",
             cost: new Decimal(3),
             effect() {
                 IQB = new Decimal("4")
@@ -158,8 +195,8 @@ addLayer("k", {
         },
         15: {
             unlocked() {return hasUpgrade("k", 14)},
-            title: "Really needed IQ",
-            description: "boost PP based on IQ",
+            title: "Really needed Erasers",
+            description: "boost Pens based on Erasers",
             cost: new Decimal(4),
             effect() {
                 IQB = new Decimal("4")
@@ -175,7 +212,7 @@ addLayer("k", {
                 else return hasUpgrade(this.layer, 15)
             },
             title: "Something new",
-            description: "Unlocks kirill buyable",
+            description: "Unlocks a new Eraser buyable",
             cost: new Decimal(4),
         },
         22: {
@@ -184,39 +221,39 @@ addLayer("k", {
                 else return hasMilestone(this.layer, 1)
             },
             title: "Something new v2",
-            description: "Unlocks 2nd row of Kirill upgrades",
+            description: "Unlocks 2nd row of Eraser upgrades",
             cost: new Decimal(5),
         }, 
         31: {
             unlocked() {return hasUpgrade(this.layer, 22)},
             title: "Return",
-            description: "2nd PP upgrade hardcap now 1e100, other hardcaps now 1e15",
+            description: "2nd Pen upgrade hardcap is now 1e100, other hardcaps are now 1e15",
             cost: new Decimal(5),
         },
         32: {
             unlocked() {return hasUpgrade(this.layer, 22)},
             title: "Stupid Formula",
             description: "Prestige formula better",
-            tooltip: "С вашим IQ вы не можете понять престиж формулу, поэтому она теперь легче",
+            tooltip: "Your still not acadmeic enough to understand but you know it is better",
             cost: new Decimal(6),
         },
         33: {
             unlocked() {return hasUpgrade(this.layer, 22)},
-            title: "Really Really needed IQ",
-            description: "needed IQ and Really needed IQ better",
+            title: "Really Really needed Erasers",
+            description: "Needed Erasers and Really needed Erasers better",
             cost: new Decimal(8),
         },
         34: {
             unlocked() {return hasUpgrade(this.layer, 22)},
             title: "Stupid formula 2",
             description: "IQ formula slightly better",
-            tooltip: "У вас чуть больше IQ, но всё ещё недостаточно, чтобы понять IQ формулу, поэтому она теперь легче",
+            tooltip: "You still cant understand but it is even better",
             cost: new Decimal(9),
         },
         35: {
             unlocked() {return hasUpgrade(this.layer, 22)},
             title: "Super Buyable",
-            description: "Number of buyable purchases boosts PP",
+            description: "Number of buyable purchases boosts Pens",
             effect() {
                 return new Decimal(getBuyableAmount(this.layer, 11)).plus(1).pow(37)
             },
@@ -239,15 +276,15 @@ addLayer("k", {
                 else return hasUpgrade("m", 13)
             },
             title: "3rd row",
-            description: "Unlocks 3rd row of IQ upgrades",
+            description: "Unlocks 3rd row of Eraser upgrades",
             cost: new Decimal(12),
         },
         51: {
             unlocked() {
                 return hasUpgrade(this.layer, 42)
             },
-            title: "IQ is good",
-            description: "IQ boosts mafia XP",
+            title: "Erasers are good",
+            description: "Erasers boosts mafia XP",
             tooltip: "Айкью действительно влияет на устройство мафии, чем вы умнее, тем больше мафия будет процветать!",
             cost: new Decimal(12),
             effect() {
@@ -292,21 +329,28 @@ addLayer("k", {
     milestones: {
         0: {
             unlocked() {return hasUpgrade("k", 12)},
-            requirementDescription: "3 IQ",
-            effectDescription: "save 1st row PP upgrades",
+            requirementDescription: "3 Erasers",
+            effectDescription: "Save 1st row Pen upgrades",
             done() { return player.k.points.gte(3) },
         },
         1: {
             unlocked() {return hasMilestone("k", 0)},
-            requirementDescription: "5 IQ",
-            effectDescription: "save 2nd row PP upgrades",
+            requirementDescription: "5 Erasers",
+            effectDescription: "Save 2nd row Pen upgrades",
             done() { return player.k.points.gte(5) },
         },
         2: {
             unlocked() {return hasUpgrade(this.layer, 34)},
-            requirementDescription: "10 IQ",
-            effectDescription: "You gain 100% of your PP gain per second",
+            requirementDescription: "10 Erasers",
+            effectDescription: "You gain 100% of your Pen gain per second",
             done() { return player.k.points.gte(10) },
         },
     },
+    infoboxes: {
+        main: {
+            title: "New currency",
+            body() { return "A new feature! This layer is different. It uses Pens instead of Pencils. The price Increases with each one. Go to the 'Milestones' tab at the top to start." },
+        },
+}
+}
 })
