@@ -208,7 +208,7 @@ addLayer("p", {
     infoboxes: {
         main: {
             title: "Your first infobox!",
-            body() { return "<b>Welcome to The School Tree</b>.<br>This is an infobox!. They will help everwhere in the game. Read the infobox below me and click on 'Upgrades' at the to start through the school system!"},
+            body() { return "<b>Welcome to The School Tree</b>.<br>This is an infobox!. They will help everwhere in the game. Read the infobox below me and click on 'Upgrades' at the top to start through the school system!"},
         },
         main2: {
             title: "Pens!", 
